@@ -42,3 +42,58 @@ resource "aws_s3_bucket_website_configuration" "frontend_website" {
     suffix = "index.html"
   }
 }
+resource "aws_s3_object" "desafio1_index" {
+  bucket       = aws_s3_bucket.frontend_buckets[0].id
+  key          = "index.html"
+  source       = "${path.module}/index.html"
+  content_type = "text/html"
+}
+
+resource "aws_s3_object" "desafio1_script" {
+  bucket       = aws_s3_bucket.frontend_buckets[0].id
+  key          = "script.js"
+  source       = "${path.module}/script.js"
+  content_type = "application/javascript"
+}
+
+resource "aws_s3_object" "desafio1_style" {
+  bucket       = aws_s3_bucket.frontend_buckets[0].id
+  key          = "style.css"
+  source       = "${path.module}/style.css"
+  content_type = "text/css"
+}
+
+resource "aws_s3_object" "desafio2_index" {
+  bucket       = aws_s3_bucket.frontend_buckets[1].id
+  key          = "index.html"
+  source       = "${path.module}/../Desafio 2/index.html"
+  content_type = "text/html"
+}
+
+resource "aws_s3_object" "desafio2_style" {
+  bucket       = aws_s3_bucket.frontend_buckets[1].id
+  key          = "style.css"
+  source       = "${path.module}/../Desafio 2/style.css"
+  content_type = "text/css"
+}
+
+resource "aws_s3_object" "desafio3_index" {
+  bucket       = aws_s3_bucket.frontend_buckets[2].id
+  key          = "index.html"
+  source       = "${path.module}/../Desafio 3/index.html"
+  content_type = "text/html"
+}
+
+resource "aws_s3_object" "desafio3_script" {
+  bucket       = aws_s3_bucket.frontend_buckets[2].id
+  key          = "script.js"
+  source       = "${path.module}/../Desafio 3/script.js"
+  content_type = "application/javascript"
+}
+
+resource "aws_s3_object" "desafio3_style" {
+  bucket       = aws_s3_bucket.frontend_buckets[2].id
+  key          = "style.css"
+  source       = "${path.module}/../Desafio 3/style.css"
+  content_type = "text/css"
+}
